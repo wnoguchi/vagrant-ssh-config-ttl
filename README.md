@@ -14,7 +14,24 @@ vagrant plugin install vagrant-ssh-config-ttl
 ## Usage
 
 ```
-$ vagrant ssh-config-ttl
+C:\path\to\vagrantfile> vagrant ssh-config-ttl > connect.ttl
+```
+
+or
+
+```
+C:/path/to/vagrantproject>vagrant ssh-config-ttl
+HOSTADDR = '127.0.0.1'
+PORT = '2222'
+USERNAME = 'vagrant'
+COMMAND = HOSTADDR
+strconcat COMMAND ':'
+strconcat COMMAND PORT
+strconcat COMMAND ' /ssh /2 /auth=publickey /nosecuritywarning /user='
+strconcat COMMAND USERNAME
+  strconcat COMMAND ' /keyfile="C:/path/to/vagrantproject/.vagrant/machines/default/virtualbox/private_key"'
+connect COMMAND
+end
 ```
 
 ## Contributing
