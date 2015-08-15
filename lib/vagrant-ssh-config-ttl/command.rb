@@ -33,6 +33,7 @@ module VagrantPlugins
           raise Vagrant::Errors::SSHNotReady if ssh_info.nil?
 
           variables = {
+            template_root: File.join(VagrantPlugins::CommandSSHConfigTTL.root, "templates"),
             host_key: options[:host] || machine.name || "vagrant",
             ssh_host: ssh_info[:host],
             ssh_port: ssh_info[:port],
@@ -45,7 +46,7 @@ module VagrantPlugins
           }
 
           # Render the template and output directly to STDOUT
-          template = "vagrant-ssh-config-ttl/tera_term_language_template"
+          template = "tera_term_language_template"
           safe_puts(Vagrant::Util::TemplateRenderer.render(template, variables))
           safe_puts
         end
