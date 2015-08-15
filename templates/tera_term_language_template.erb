@@ -4,11 +4,10 @@ USERNAME = '<%= ssh_user %>'
 COMMAND = HOSTADDR
 strconcat COMMAND ':'
 strconcat COMMAND PORT
-strconcat COMMAND ' /ssh /2 /auth=publickey /user='
+strconcat COMMAND ' /ssh /2 /auth=publickey /nosecuritywarning /user='
 strconcat COMMAND USERNAME
 <% private_key_path.each do |path| %>
   strconcat COMMAND ' /keyfile="<%= path %>"'
-  strconcat COMMAND KEY_FILE
 <% end -%>
 connect COMMAND
 end
