@@ -5,7 +5,7 @@ require 'vagrant/ssh/config/ttl/version'
 
 Gem::Specification.new do |spec|
   spec.name          = "vagrant-ssh-config-ttl"
-  spec.version       = Vagrant::Ssh::Config::Ttl::VERSION
+  spec.version       = VagrantPlugins::CommandSSHConfigTTL::VERSION
   spec.authors       = ["Wataru Noguchi"]
   spec.email         = ["wnoguchi.0727@gmail.com"]
 
